@@ -1,2 +1,2 @@
 Flask
-mariaDB
+mysql-connector-python

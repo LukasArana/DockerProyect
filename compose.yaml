@@ -11,10 +11,10 @@ services:
     volumes:
       - "./data:/data"
     environment:
-      MYSQL_ROOT_PASSWORD: lukashasier
+      MYSQL_ROOT_PASSWORD: lukaskas22
       MYSQL_DATABASE: data
-      MYSQL_USER: lukas
-      MYSQL_PASSWORD: lukashasier
+      MYSQL_USER: root
+      MYSQL_PASSWORD: lukaskas22
   adminer:
     image: adminer
     restart: always
