@@ -4,22 +4,22 @@ services:
     build: .
     deploy:
         mode: replicated
-        replicas:3
+        replicas: 3
   db:
     image: mariadb
     restart: always
     volumes:
       - "./data:/data"
-    enviroment:
-      MYSQL_ROOT_PASSWORD: lukaskas22
+    environment:
+      MYSQL_ROOT_PASSWORD: lukashasier
       MYSQL_DATABASE: data
       MYSQL_USER: lukas
-      MYSQL_PASSWORD: lukaskas22
+      MYSQL_PASSWORD: lukashasier
   adminer:
     image: adminer
     restart: always
     ports:
-      -8080:8080
+      - "8080:8080"
   nginx:
     image: nginx:latest
     volumes:
