@@ -6,11 +6,10 @@ import mysql.connector as mariadb
 
 conn = mariadb.connect(
           host='db',
-          user='root',
-          password='lukaskas22',
-          database='data',
+          user='lukashasier',
+          password='lukashasier',
+          database='lana',
           port=3306)
-cursor = conn.cursor()
 
 app = Flask(__name__)
 
@@ -20,10 +19,20 @@ def test():
 
 @app.route("/message", methods=['GET', 'POST'])
 def message():
+    cursor = conn.cursor()
     if request.method == 'POST':
-        return f"post"
+      req = request.json
+      cursor.execute('INSERT INTO datuak (fro, CONTENT, id) VALUES (%s, %s, %s)',
+                   (req["From"], req["Content"], socket.gethostname()))
+      conn.commit()
+      cursor.close()
+      return req
     else:
-        return f'{request.method}'
+      cursor.execute('SELECT * FROM datuak')
+      data = cursor.fetchall()
+      cursor.close()
+      return data
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
