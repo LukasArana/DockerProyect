@@ -1,0 +1,3 @@
+CREATE DATABASE data3;
+CREATE USER lukashasier IDENTIFIED BY lukashasier;
+GRANT ALL PRIVILEGES ON DATABASE data TO lukashasier; 

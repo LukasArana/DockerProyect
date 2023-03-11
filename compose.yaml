@@ -10,13 +10,17 @@ services:
   db:
     image: mariadb
     restart: always
+    command: --init-file /init.sql
     volumes:
-      - "./data:/data"
+      - ./data:/data
+      - ./init.sql:/init.sql
     environment:
-      MYSQL_ROOT_PASSWORD: lukaskas22
+      MYSQL_ROOT_PASSWORD: lukashasier
       MYSQL_DATABASE: data
-      MYSQL_USER: root
-      MYSQL_PASSWORD: lukaskas22
+      MYSQL_USER: lukashasier
+      MYSQL_PASSWORD: lukashasier
+    ports:
+      - "3306:3306"
   adminer:
     image: adminer
     restart: always
