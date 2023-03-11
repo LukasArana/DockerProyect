@@ -1,4 +1,3 @@
-# Python 2.7 oinarri ofizial batetik abiatuko gara
 FROM python:3.9.12-slim
 # kontainerra hasten denean, bere lan direktorioa honakoa izango da
 WORKDIR /app
@@ -12,4 +11,4 @@ EXPOSE 5000
 # Ingurune aldagai bat sortuko dugu
 ENV NAME World
 # Kontainerra jaurtitzerakoan, honako komandoa exekutatuko da
-CMD ["python", "app.py"]
+CMD ["python3", "app.py"]
